@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="10" fill="#14283F"/>
+  <!-- Open Atlas Book / Contour Lines -->
+  <path d="M12 34V16C12 16 16 14 24 17C32 14 36 16 36 16V34C36 34 32 32 24 35C16 32 12 34 12 34Z" stroke="#F4EFE5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 17V35" stroke="#F4EFE5" stroke-width="2" stroke-linecap="round"/>
+  <!-- Terracotta Knowledge Compass Pin -->
+  <circle cx="24" cy="23" r="3" fill="#BF693D"/>
+  <circle cx="24" cy="23" r="5" stroke="#BF693D" stroke-width="1" stroke-dasharray="2 2"/>
+</svg>

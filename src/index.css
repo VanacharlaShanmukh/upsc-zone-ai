@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-paper: #F4EFE5;
+    --color-paper-secondary: #EAE2D4;
+    --color-card: #FFFDFA;
+    --color-border: #DCD4C6;
+    --color-navy: #14283F;
+    --color-navy-deep: #101D2D;
+    --color-terracotta: #BF693D;
+    --color-sage: #78856A;
+    --color-text: #28323B;
+    --color-text-muted: #68716F;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-text);
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #EAE2D4;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C4BAA9;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #A89D8B;
+  }
+}
+
+/* Cartographic Grid & Contour utilities */
+.atlas-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(20, 40, 63, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 40, 63, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.atlas-grid-bg-dark {
+  background-image: 
+    linear-gradient(to right, rgba(244, 239, 229, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 239, 229, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Subtle Topographic Contour Background */
+.contour-lines-subtle {
+  background-image: radial-gradient(circle at 50% 50%, transparent 20%, rgba(20, 40, 63, 0.015) 21%, transparent 22%),
+                    radial-gradient(circle at 20% 80%, transparent 35%, rgba(20, 40, 63, 0.02) 36%, transparent 37%),
+                    radial-gradient(circle at 80% 30%, transparent 45%, rgba(20, 40, 63, 0.02) 46%, transparent 47%);
+  background-size: 100% 100%;
+}
+
+/* Paper grain overlay */
+.paper-texture {
+  position: relative;
+}
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/* Animation Utilities */
+@keyframes pulseSubtle {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.15);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-dash-flow {
+  animation: dashFlow 20s linear infinite;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
